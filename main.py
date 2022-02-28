@@ -180,6 +180,8 @@ def main():
 
                 while True:
                     key_pressed = keyboard.read_event()
+                    if (key_pressed.name in BANNED_KEYS):
+                        break
                     if (key_pressed.event_type != "up"):
                         last_time = time()
                         if (last_time - start > SECONDS_TO_WAIT_PRESSING):
