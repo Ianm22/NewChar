@@ -5,7 +5,7 @@ import json
 #  default 0.2
 SECONDS_TO_WAIT_PRESSING = 0.2
 # 'dvorak' or 'qwerty'.
-SELECTED_KEYBOARD = "qwerty"
+SELECTED_KEYBOARD = "dvorak"
 # Select the shortcut that you want to use for pause/resume the program.
 PAUSE_PROGRAM_HOTKEY = 'ctrl+shift+_'
 # Stop program.
@@ -171,6 +171,9 @@ def main():
 
         while program_status:
             key_pressed = keyboard.read_event()
+
+            if (key_pressed.name in BANNED_KEYS):
+                continue
 
             if (key_pressed.event_type != "up"):
                 start = time()
