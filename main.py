@@ -112,6 +112,8 @@ def selectDiffrentChars(keyboard_layout, code):
             test_char = isinstance(int(char.name), (int))
         except:
             print("is not a number")
+            for x in range(len(options) + 1):
+                keyboard.press_and_release("backspace")
             break
 
         if (test_char):
